@@ -1,0 +1,26 @@
+name: Read Commit
+
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  read_commit:
+    runs-on: 'ubuntu-22.04'
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Environment
+        uses: actions/setup-python@v3
+      - name: Read Commit
+        if: github.event_name == 'release'
+        run: |
+          # Remove 'refs/tags/' to get the actual tag from the release.
+          TAG=${GITHUB_REF#refs/tags/};
+          VERSION=$(scripts/get_version.py current)
+          if [ "$TAG" != "$VERSION" ]; then
+              echo "Bad tag or version. Tag $TAG does not match $VERSION";
+              exit 1;
+          fi
