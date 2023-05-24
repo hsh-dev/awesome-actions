@@ -11,6 +11,9 @@ jobs:
       - name: Log Event
         run: |
           echo "${{toJSON(github.event)}}"
+      - name: Log Commits
+        run: |
+          echo "${{ github.event.commits }}"
       - name: Log Event when release
         if: github.event_name == 'release'
         run: |
@@ -25,5 +28,6 @@ jobs:
   logging_pr:
     runs-on: ubuntu-20.04
     steps:
-    - name : Log PR Title
-      run: echo ${{ github.event.pull_request.title }}
+    - name : Log PR
+      run: |
+        echo "${{ github.event.pull_request }}"
