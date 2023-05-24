@@ -1,17 +1,17 @@
-name: Event Logger
+name: Every Logger
 
 on:
   push:
     branches:
       - 'main'
 jobs:
-  logging_action:
+  logging_event:
     runs-on: 'ubuntu-22.04'
     steps:
       - name: Log Event
         run: |
           echo "${{toJSON(github.event)}}"
-      - name: Log
+      - name: Log Event when release
         if: github.event_name == 'release'
         run: |
           # Remove 'refs/tags/' to get the actual tag from the release.
@@ -21,3 +21,9 @@ jobs:
               echo "Bad tag or version. Tag $TAG does not match $VERSION";
               exit 1;
           fi
+          
+  logging_pr:
+    runs-on: ubuntu-20.04
+    steps:
+    - name : Log PR Title
+      run: echo ${{ github.event.pull_request.title }}
