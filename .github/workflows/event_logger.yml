@@ -35,4 +35,5 @@ jobs:
       run: |
         echo ${{ github.event.pull_request.title }}
     - name: Log PR body
+      run: |
         echo ${{ github.event.pull_request.body }}
