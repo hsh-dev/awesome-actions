@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'awesome-actions'
+description = 'github action practice'
+readme = 'README.md'
+authors = [{ name = 'hsh-dev', email = 'h2o0318@naver.com' }]
+
+version = "0.0.0"
+keywords = []
+classifiers = [
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Topic :: Software Development',
+  'Topic :: Software Development :: Libraries',
+  'Topic :: Software Development :: Libraries :: Python Modules'
+]
+requires-python = '>=3.10'
+dependencies = []
+
+[tool.bumpver]
+current_version = "0.0.0"
+version_pattern = "MAJOR.MINOR.PATCH[-TAG]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"awesome-actions/__init__.py" = ["{version}"]
