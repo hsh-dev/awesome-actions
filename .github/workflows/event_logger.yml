@@ -13,7 +13,7 @@ jobs:
           echo "${{toJSON(github.event)}}"
       - name: Log Commits
         run: |
-          echo "${{ github.event.commits }}"
+          echo "${{toJSON(github.event.commits)}}"
       - name: Log Event when release
         if: github.event_name == 'release'
         run: |
