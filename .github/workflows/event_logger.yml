@@ -1,6 +1,7 @@
 name: Every Logger
 
 on:
+  pull_request:
   push:
     branches:
       - 'main'
