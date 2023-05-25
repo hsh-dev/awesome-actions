@@ -8,7 +8,7 @@ description = 'github action practice'
 readme = 'README.md'
 authors = [{ name = 'hsh-dev', email = 'h2o0318@naver.com' }]
 
-version = "0.0.1"
+version = "0.0.3"
 keywords = []
 classifiers = [
   'Programming Language :: Python :: 3.9',
@@ -21,7 +21,7 @@ requires-python = '>=3.10'
 dependencies = []
 
 [tool.bumpver]
-current_version = "0.0.1"
+current_version = "0.0.3"
 version_pattern = "MAJOR.MINOR.PATCH[-TAG]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
