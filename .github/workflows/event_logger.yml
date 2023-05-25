@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Log Event
         run: |
-          echo "${{toJSON(github.event)}}"
+          echo ${{toJSON(github.event)}}
       - name: Log Commits
         run: |
-          echo "${{toJSON(github.event.commits)}}"
+          echo ${{toJSON(github.event.commits)}}
       - name: Log Event when release
         if: github.event_name == 'release'
         run: |
@@ -30,4 +30,9 @@ jobs:
     steps:
     - name : Log PR
       run: |
-        echo "${{toJSON(github.event.pull_request)}}"
+        echo ${{toJSON(github.event.pull_request)}}
+    - name : Log PR title
+      run: |
+        echo ${{ github.event.pull_request.title }}
+    - name: Log PR body
+        echo ${{ github.event.pull_request.body }}
