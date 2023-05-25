@@ -35,4 +35,4 @@ jobs:
     - name: Log Tags
       run: |
         TAG=${GITHUB_REF#refs/tags/};
-        echo TAG
+        echo $TAG
