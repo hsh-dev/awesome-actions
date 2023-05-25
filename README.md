@@ -7,6 +7,7 @@ github action을 test하기 위해서 만든 repo
 
 
 ### 2. Release 자동화
+main push -> Read PR title -> update tag -> main push again
 []
 
 ### 3. Tag 업데이트
